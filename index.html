@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Лабораторна робота №4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Система управління країнами</h1>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#derzhava">Держава</a></li>
+    <li><a data-toggle="tab" href="#naselennya">Населення</a></li>
+    <li><a data-toggle="tab" href="#natsionalnist">Національність</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div id="derzhava" class="tab-pane fade in active">
+      <h3>Держава</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Столиця</th>
+            <th>Площа</th>
+            <th>Населення</th>
+            <th>Форма правління</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="derzhavaTableBody"></tbody>
+      </table>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addDerzhavaModal">Додати</button>
+    </div>
+
+    <div id="naselennya" class="tab-pane fade">
+      <h3>Населення</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Кількість</th>
+            <th>Назва міста</th>
+            <th>Рік підрахунку</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="naselennyaTableBody"></tbody>
+      </table>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addNaselennyaModal">Додати</button>
+    </div>
+
+    <div id="natsionalnist" class="tab-pane fade">
+      <h3>Національність</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Назва</th>
+            <th>Кількість</th>
+            <th>Основна мова</th>
+            <th>Основна релігія</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody id="natsionalnistTableBody"></tbody>
+      </table>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#addNatsionalnistModal">Додати</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="addDerzhavaModal" tabindex="-1" role="dialog" aria-labelledby="addDerzhavaLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addDerzhavaLabel">Додати державу</h4>
+      </div>
+      <div class="modal-body">
+        <form id="addDerzhavaForm">
+          <div class="form-group">
+            <label for="derzhavaName">Назва</label>
+            <input type="text" class="form-control" id="derzhavaName" required>
+          </div>
+          <div class="form-group">
+            <label for="derzhavaCapital">Столиця</label>
+            <input type="text" class="form-control" id="derzhavaCapital" required>
+          </div>
+          <div class="form-group">
+            <label for="derzhavaArea">Площа (км²)</label>
+            <input type="number" class="form-control" id="derzhavaArea" required>
+          </div>
+          <div class="form-group">
+            <label for="derzhavaPopulation">Населення</label>
+            <input type="number" class="form-control" id="derzhavaPopulation" required>
+          </div>
+          <div class="form-group">
+            <label for="derzhavaGovernment">Форма правління</label>
+            <input type="text" class="form-control" id="derzhavaGovernment" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addNaselennyaModal" tabindex="-1" role="dialog" aria-labelledby="addNaselennyaLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addNaselennyaLabel">Додати населення</h4>
+      </div>
+      <div class="modal-body">
+        <form id="addNaselennyaForm">
+          <div class="form-group">
+            <label for="naselennyaQuantity">Кількість</label>
+            <input type="number" class="form-control" id="naselennyaQuantity" required>
+          </div>
+          <div class="form-group">
+            <label for="naselennyaCity">Назва міста</label>
+            <input type="text" class="form-control" id="naselennyaCity" required>
+          </div>
+          <div class="form-group">
+            <label for="naselennyaYear">Рік підрахунку</label>
+            <input type="number" class="form-control" id="naselennyaYear" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addNatsionalnistModal" tabindex="-1" role="dialog" aria-labelledby="addNatsionalnistLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addNatsionalnistLabel">Додати національність</h4>
+      </div>
+      <div class="modal-body">
+        <form id="addNatsionalnistForm">
+          <div class="form-group">
+            <label for="natsionalnistName">Назва</label>
+            <input type="text" class="form-control" id="natsionalnistName" required>
+          </div>
+          <div class="form-group">
+            <label for="natsionalnistQuantity">Кількість</label>
+            <input type="number" class="form-control" id="natsionalnistQuantity" required>
+          </div>
+          <div class="form-group">
+            <label for="natsionalnistLanguage">Основна мова</label>
+            <input type="text" class="form-control" id="natsionalnistLanguage" required>
+          </div>
+          <div class="form-group">
+            <label for="natsionalnistReligion">Основна релігія</label>
+            <input type="text" class="form-control" id="natsionalnistReligion">
+          </div>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="./main.js"></script>
+
+</body>
+</html>
